@@ -54,7 +54,7 @@ public class CountryPickerViewController: UITableViewController {
         }
     }
     
-    open dynamic func cancelButtonTapped(_ sender: UIBarButtonItem) {
+    @objc open dynamic func cancelButtonTapped(_ sender: UIBarButtonItem) {
         delegate?.countryPickerViewControllerDidCancel(self)
     }
     
