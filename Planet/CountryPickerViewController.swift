@@ -44,7 +44,7 @@ public class CountryPickerViewController: UITableViewController {
     fileprivate var countryDataSource = CountryDataSource()
     
     fileprivate var searchResults: [Country]?
-    open let searchController = UISearchController(searchResultsController: nil)
+    public let searchController = UISearchController(searchResultsController: nil)
     
     open func findCountry(_ indexPath: IndexPath) -> Country {
         if let searchResults = searchResults {
@@ -54,7 +54,7 @@ public class CountryPickerViewController: UITableViewController {
         }
     }
     
-    open dynamic func cancelButtonTapped(_ sender: UIBarButtonItem) {
+    @objc open dynamic func cancelButtonTapped(_ sender: UIBarButtonItem) {
         delegate?.countryPickerViewControllerDidCancel(self)
     }
     
@@ -119,7 +119,7 @@ public extension CountryPickerViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let style: UITableViewCellStyle = showsCallingCodes ? .subtitle : .default
+        let style: UITableViewCell.CellStyle = showsCallingCodes ? .subtitle : .default
         let identifier = showsCallingCodes ? "SubtitleCell" : "DefaultCell"
         
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
